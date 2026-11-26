@@ -4,6 +4,8 @@ import os
 from datetime import datetime
 
 from fastmcp import FastMCP
+from starlette.requests import Request
+from starlette.responses import PlainTextResponse
 
 
 DATABASE = "restaurant.db"
@@ -12,6 +14,18 @@ MAX_CAPACITY_PER_SLOT = 30
 
 mcp = FastMCP("RES A Booking Service")
 
+OPENAI_VERIFICATION_TOKEN = os.environ.get(
+    "OPENAI_VERIFICATION_TOKEN",
+    ""
+)
+
+
+@mcp.custom_route(
+    "/.well-known/openai-apps-challenge",
+    methods=["GET"],
+)
+async def openai_domain_verification(request: Request):
+    return PlainTextResponse(OPENAI_VERIFICATION_TOKEN)
 
 def get_connection():
     connection = sqlite3.connect(DATABASE)
