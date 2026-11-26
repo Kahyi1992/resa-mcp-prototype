@@ -53,7 +53,14 @@ def initialize_database():
         )
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def get_restaurant_info() -> dict:
     """Return RES A restaurant information and booking policies."""
     return {
@@ -71,7 +78,14 @@ def get_restaurant_info() -> dict:
     }
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def check_availability(
     reservation_date: str,
     reservation_time: str,
@@ -141,7 +155,14 @@ def check_availability(
     }
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def create_reservation(
     reservation_date: str,
     reservation_time: str,
@@ -219,7 +240,14 @@ def create_reservation(
     }
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def get_reservation(reservation_id: str) -> dict:
     """Retrieve a reservation using its confirmation ID."""
 
@@ -245,7 +273,14 @@ def get_reservation(reservation_id: str) -> dict:
     }
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def modify_reservation(
     reservation_id: str,
     new_date: str,
@@ -309,7 +344,14 @@ def modify_reservation(
     }
 
 
-@mcp.tool
+@mcp.tool(
+    annotations={
+        "readOnlyHint": True,
+        "destructiveHint": False,
+        "idempotentHint": True,
+        "openWorldHint": False,
+    }
+)
 def cancel_reservation(reservation_id: str) -> dict:
     """Cancel an existing confirmed reservation."""
 
