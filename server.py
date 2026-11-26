@@ -157,10 +157,10 @@ def check_availability(
 
 @mcp.tool(
     annotations={
-        "readOnlyHint": True,
-        "destructiveHint": False,
-        "idempotentHint": True,
-        "openWorldHint": False,
+    	"readOnlyHint": False,
+    	"destructiveHint": False,
+    	"idempotentHint": False,
+    	"openWorldHint": False,
     }
 )
 def create_reservation(
@@ -275,10 +275,10 @@ def get_reservation(reservation_id: str) -> dict:
 
 @mcp.tool(
     annotations={
-        "readOnlyHint": True,
-        "destructiveHint": False,
-        "idempotentHint": True,
-        "openWorldHint": False,
+        "readOnlyHint": False,
+    	"destructiveHint": True,
+    	"idempotentHint": True,
+    	"openWorldHint": False,
     }
 )
 def modify_reservation(
@@ -346,10 +346,10 @@ def modify_reservation(
 
 @mcp.tool(
     annotations={
-        "readOnlyHint": True,
-        "destructiveHint": False,
-        "idempotentHint": True,
-        "openWorldHint": False,
+        "readOnlyHint": False,
+    	"destructiveHint": True,
+    	"idempotentHint": True,
+    	"openWorldHint": False,
     }
 )
 def cancel_reservation(reservation_id: str) -> dict:
